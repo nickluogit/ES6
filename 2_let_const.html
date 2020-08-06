@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<ul>
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+</ul>
+<script>
+    //闭包函数,缺点a一直引用,内存泄漏CG
+    (function (a){console.log(a)})(2)
+
+    function f(a){
+        console.log(a)
+    }
+
+    // 解析es5,形成闭包
+    let lis=document.querySelectorAll('ul li');
+    for(let i=0;i<lis.length;i++){
+        lis[i].onclick=function(){
+            console.log(i);
+        }
+    }
+
+    var lis1=document.querySelectorAll('ul li');
+    for(let i=0;i<lis1.length;i++){
+        lis1[i].index=i;
+        lis1[i].onclick=function(){
+            console.log(this.index);
+        }
+    }
+
+    //常量不能改指向的内存地址,对象可以变
+    const a=1;
+    const b={
+        name:'lily'
+    }
+    //冻结,就不能改变了
+    Object.freeze(b);
+
+    // var所有对象都在window下,let不会
+</script>
+</body>
+</html>

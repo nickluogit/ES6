@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        let a=1;
+        // 问题一,var局部,对于内部又是全局
+        function fu(){
+        a=3;
+        console.log(a);
+        }
+        fu();
+        console.log(a);
+
+
+        console.log(b);
+        var b=4;
+        let b;
+        //let b前面不能出现b
+
+        // for循环i会出来
+        for(var i=0;i<5;i++){
+        }
+        console.log(i);
+
+        function fun(){
+            var c=1;
+        }
+        fun();
+        console.log(c);
+    </script>
+</body>
+</html>
