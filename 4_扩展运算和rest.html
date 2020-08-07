@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //不确定参数
+    function foo(...arg){
+        console.log(arg);
+    }
+    //剩余的参数
+    function foo(a, ...arg){
+        console.log(arg);
+        console.log(a);
+    }
+   foo(1,2);
+
+    //合并数组
+    let arr1=[1,2,3];
+    let arr2=['a','b','c'];
+    let arr3=[1,2,...arr1,3]
+    console.log(arr3);
+
+    let arr33=[...arr1,...arr2]
+    console.log(arr33)
+
+    //创建一个新数组,跟arr1不是一个地址
+    let arr4=[...arr1];
+
+    let obj1={
+        name:'zs',
+        age:18
+    };
+    //有重复后面覆盖前面
+    let obj2={
+        name:'zg',
+        school:2
+    };
+    let obj3={...obj1,...obj2};
+    console.log(obj3);
+</script>
+</body>
+</html>

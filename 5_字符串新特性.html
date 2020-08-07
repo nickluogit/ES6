@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let str='abc';
+    let a=str.charAt(1);
+    console.log(a);
+    //检索字符串
+    let c=str.indexOf('b');
+    //返回值不同
+    let c1=str.includes('b');
+    console.log(c);
+    console.log(c1);
+
+    let ab=str.split('');
+    console.log(ab);
+
+    //前面后面插入
+    let str5=str.padEnd(4,'ab');
+    console.log(str5);
+
+    //转化成2进制
+    let num=44;
+    let num2=num.toString(2);
+    console.log(num2)
+
+    //0b 二进制 0o八进制
+    let num3=0b1010;
+    console.log(num3);
+
+    //模板字符串
+    let str1="adfadf";
+    console.log(str1);
+
+    let str2='dd';
+    let str3=`dfsdf${str2}`;
+    console.log(str3)
+
+</script>
+</body>
+</html>
