@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button id="btn">btn</button>
+<script>
+    'use strict'
+    //变量必须定义
+    var a=4;
+    var b;
+    console.log(a)
+    console.log(b)
+    //避免this指向window
+    //构造函数必须new
+    //属性参数不能用重复的名字
+
+    //this 谁调用指向谁
+    //1,普通函数指向window,html指向元素,对象里面赋值指向对象
+
+    let obj={
+        name:'l'
+    }
+    function ad (a) {
+        console.log(this);
+        console.log(a);
+    }
+    //改变指向,一般是改变普通函数的this指向window
+    ad.call(obj,4);
+    ad.apply(obj,[2]);
+    ad.bind(obj,5)();//只改变指向,调用要用()
+
+    let btn=document.getElementById('btn');
+    btn.onclick=(function () {
+        setInterval(function () {
+            console.log(this);
+        }.bind(this),1000)
+    })
+
+    function f(a,b) {
+        return a+b;
+    }
+
+    let f1=(x,y)=>{
+        return x+y;
+    }
+
+    let x=(x)=>x;
+
+    console.log(x(3));
+
+    //=>函数不能用做构造对象,不用argument, 用rest,this指向为定义时的对象
+    let foo=(...arg)=>{
+        console.log(arg);
+    }
+    foo(2,3,4);
+</script>
+</body>
+</html>

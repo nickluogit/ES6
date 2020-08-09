@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //省略写法
+        let n='name';
+        let p='parent';
+        let obj={
+            name:'lily',
+            [n]:'dd',
+            age:12,
+            p,
+            code:function () {
+                console.log('conding');
+            },
+            hobby(){
+              console.log('baskellball')
+            }
+        }
+        obj.code();
+        obj.hobby();
+        //一个等号,两个等号,三个等号
+        //基本数据有三个等号
+
+        //相当于双等号
+        Object.is(obj,obj);
+
+
+        //assign合并,浅拷贝
+    let obj3={
+        name:'lily',
+        age:12
+
+    }
+    let obj4={
+        name:'lily',
+        age:13
+    }
+        Object.assign(obj3,obj4);
+    console.log(obj3);
+
+    //判断某个位置是否有值
+    let arr=[1,2,3];
+    console.log(4 in arr);
+    console.log('name' in obj);
+</script>
+</body>
+</html>

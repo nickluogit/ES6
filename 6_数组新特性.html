@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //跟字符串相互转化
+    let arr=[1,2,4];
+    let str=arr.join('');
+    console.log(str);
+    let ob={
+        name:123,
+        age:22
+    }
+    //插入,翻转
+    //排序(默认开头)
+    let arr1=[1,2,3,4,5,11];
+    arr1.sort();
+    console.log(arr1);
+    arr1.sort(function (a,b) {
+        return a-b;
+    })
+    console.log(arr1);
+
+    arr1.sort(function (a,b) {
+        return Math.random()-0.5
+    })
+    console.log(arr1);
+
+    //splice
+    let arr3=arr1.splice(1,2,8,4,4);
+    console.log(arr1)
+
+    //Array.from()集合转化为数组
+
+    //Array.of(),把零散的变成数组
+
+    //es6 新遍历
+    for (let [index,item] of arr.entries()){
+        console.log(index,item)
+    }
+    //无返回值遍历
+    arr.forEach(function(index,item,self){
+        console.log(index,item,self)
+    })
+    //可以有返回值,filter可以过滤
+    arr.map(function(index,item,self){
+        if(index<5){
+            return index;
+        }
+    })
+    arr.filter(function(index,item,self){
+        if(index<5){
+            return index;
+        }
+    });
+    console.log(arr);
+
+    // some(),every()用于遍历判断
+</script>
+</body>
+</html>
