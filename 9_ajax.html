@@ -10,13 +10,13 @@
 
 </ul>
 <script>
-    $.get('https://bird.ioliu.cn/v1?url=https://api.douban.com/v2/movie/in_theaters?city=广州&start=0&count=10',{}, res=>{
+    $.get('a.json',{}, res=>{
         console.log(res);
         let $list=$('#list');
-        // for(let item of res){
-        //     let $li=$(`<li>${item}</li>>`);
-        //     $list.append($li);
-        // }
+        for(let item of res){
+            let $li=$(`<li>${item}</li>>`);
+            $list.append($li);
+        }
     },'json');
 </script>
 
