@@ -13,7 +13,7 @@
     $.get('a.json',{}, res=>{
         console.log(res);
         let $list=$('#list');
-        for(let item of res){
+        for(let item of res.name){
             let $li=$(`<li>${item}</li>>`);
             $list.append($li);
         }
