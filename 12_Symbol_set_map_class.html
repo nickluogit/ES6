@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //避免命名冲突
+    let name=Symbol('name');
+    let age=Symbol('age');
+    let obj={
+        [name]:'lliy',
+        name:'ddd'
+    }
+    console.log(obj.name,obj[name]);
+
+    //set 的数据不能重复 如何给数组去重,set的索引就是自己的值
+    let s1=new Set([1,2,3]);
+    console.log(s1);
+    s1.add(4);
+    console.log(s1);
+    s1.delete(1);
+
+    let ws=new WeakSet();
+    ws.add(obj);
+    console.log(ws);
+
+    //无逻辑的关联
+    let m1=new Map();
+    m1.set('age',21);
+    m1.set('name','as');
+    m1.set(obj,'dd');
+    console.log(m1);
+    console.log(m1.get('age'));
+
+    for(let [index,item] of m1){
+        console.log(`${index}--${item}`);
+    }
+
+    function People(name ,age){
+      this.name=name;
+      this.age=age;
+    }
+    People.prototype.showName=function(){
+        console.log(this.name);
+    }
+    let p1=new People('zs',12);
+    p1.showName();
+
+    function Coder(name,age,company) {
+        People.call(this,name,age);
+        this.company=company;
+    }
+    Coder.prototype=new People();
+    Coder.prototype.showCompany=function () {
+        console.log(this.company);
+    }
+
+    let c1=new Coder('dd',12,'huawei');
+    c1.showCompany();
+
+    class People1{
+        constructor(name,age) {
+            this.name=name;
+            this.age=age;
+        }
+        showName(){
+            console.log(this.name);
+        }
+    }
+
+    class Coder1 extends People1{
+        constructor(name,age,company) {
+            super(name,age);
+            this.company=company;
+        }
+        static foo(){
+            console.log('我是静态方法');
+        }
+    }
+    let c2=new Coder1('mike',11,'baidu');
+    c2.showName();
+    Coder1.foo();
+
+</script>
+</body>
+</html>
